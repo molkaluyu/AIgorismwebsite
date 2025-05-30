@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - AIgorism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .form-container-gradient {
+             background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* 深灰色渐变 */
+        }
+        .social-login-button {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .social-login-button:hover {
+            transform: translateY(-2px);
+        }
+        .google-btn { background-color: #DB4437; }
+        .google-btn:hover { background-color: #C33D2E; }
+        .linkedin-btn { background-color: #0077B5; }
+        .linkedin-btn:hover { background-color: #005E8E; }
+        .wechat-btn { background-color: #09B83E; } /* 微信绿 */
+        .wechat-btn:hover { background-color: #07A034; }
+        .github-btn { background-color: #333; }
+        .github-btn:hover { background-color: #24292e; }
+
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-white px-4 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <div class="border-l-4 border-indigo-500 bg-gray-800 mb-2">
+                    <a href="登录页.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                </div>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex items-center justify-center min-h-screen px-4 py-12">
+        <div class="form-container-gradient p-8 md:p-12 rounded-xl shadow-2xl w-full max-w-md">
+            <div class="text-center mb-8">
+                <a href="首页.html" class="text-4xl font-bold text-white">AIgorism</a>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-center text-white mb-6">登录您的账户</h2>
+
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-300">邮箱地址</label>
+                    <div class="mt-1">
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                               class="appearance-none block w-full px-3 py-2.5 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-700 text-white">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-300">密码</label>
+                    <div class="mt-1">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                               class="appearance-none block w-full px-3 py-2.5 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-700 text-white">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox"
+                               class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-500 rounded bg-gray-700">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-300">记住我</label>
+                    </div>
+
+                    <div class="text-sm">
+                        <a href="#forgot-password" class="font-medium text-indigo-400 hover:text-indigo-300">
+                            忘记密码？
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cta-button-primary">
+                        登录
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-6">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-600"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-gray-800 text-gray-400 rounded-md">或通过以下方式登录</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 gap-3">
+                     <div>
+                        <a href="#login-google"
+                           class="w-full inline-flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white google-btn social-login-button">
+                            <svg class="w-5 h-5 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 398.8 0 258.3S110.3 4.8 244 4.8c67.9 0 124.9 24.9 168.7 69.5l-63.3 61.8C324.4 112.3 287.8 96.8 244 96.8c-88.6 0-160.1 71.7-160.1 160.1s71.5 160.1 160.1 160.1c97.3 0 131.4-70.4 136.1-107.2H244v-73.4h236.1c1.4 8.5 2.4 17.1 2.4 26.1z"></path></svg>
+                            使用 Google 登录
+                        </a>
+                    </div>
+                     <div>
+                        <a href="#login-linkedin"
+                           class="w-full inline-flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white linkedin-btn social-login-button">
+                            <svg class="w-5 h-5 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                            使用 LinkedIn 登录
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#login-wechat"
+                           class="w-full inline-flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white wechat-btn social-login-button">
+                            <svg class="w-5 h-5 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="weixin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"> <path fill="currentColor" d="M576 224c0-9.3-3.2-18.2-8.9-25.5C558.6 186.3 546.4 176 532 176h-42.3c-1.3 0-2.6 .4-3.7 1.1l-33.6 20.8c-7.9 4.9-17.3 4.9-25.2 0L393.7 177c-1.1-.7-2.4-1.1-3.7-1.1H240c-14.4 0-26.6 10.3-35.1 22.5C196.2 205.8 193 214.7 193 224v16c0 49 40.1 89.7 89.7 89.7h114.6c49.6 0 89.7-40.7 89.7-89.7v-16zm-256 80c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 0c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zM288 0C129.2 0 0 129.2 0 288s129.2 288 288 288c16.8 0 33.2-1.5 49-4.3V464c0-10.6-4.2-20.5-11.7-27.9L288 400H192c-61.9 0-112-50.1-112-112s50.1-112 112-112h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H192c-79.5 0-144 64.5-144 144s64.5 144 144 144h112l48 48c10.2 10.2 23.7 16 38 16s27.8-5.8 38-16c10.2-10.2 16-23.7 16-38V336.7c33.6-21.8 56-59.7 56-102.7 0-70.7-57.3-128-128-128S160 162.3 160 233c0 8.8 7.2 16 16 16s16-7.2 16-16c0-53 43-96 96-96s96 43 96 96-43 96-96 96H240c-8.8 0-16 7.2-16 16s7.2 16 16 16h48c70.7 0 128-57.3 128-128C416 129.2 286.8 0 288 0z"></path></svg>
+                            使用微信登录
+                        </a>
+                    </div>
+                     <div>
+                        <a href="#login-github"
+                           class="w-full inline-flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white github-btn social-login-button">
+                            <svg class="w-5 h-5 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252.8 0 388.6 96.1 499.6 222.5 511.8c16.2 3 22.2-7.2 22.2-16.1 0-7.9-.3-29.1-.5-57.1-90.8 19.7-110.1-42.1-110.1-42.1-14.9-37.9-36.3-47.9-36.3-47.9-29.6-20.2-.2-19.8-.2-19.8 32.7 2.3 49.7 33.5 49.7 33.5 29.1 49.7 76.2 35.4 94.7 27.1 3-21.1 11.4-35.4 20.8-43.5-72.2-8.2-147.9-36.1-147.9-160.9 0-35.5 12.7-64.5 33.4-87.3-3.3-8.2-14.5-41.1 3.2-86.2 0 0 27.2-8.7 89.2 33.1A308.3 308.3 0 01250.1 123c28.7.3 57.5 4.3 84.2 12.7 62-41.8 89.1-33.1 89.1-33.1 17.7 45.1 6.5 78 3.2 86.2 20.7 22.8 33.4 51.8 33.4 87.3 0 124.8-75.7 152.7-148.3 160.6 11.7 10.1 22.1 30.1 22.1 60.5 0 43.5-.4 78.5-.4 89.1 0 8.9 5.9 19.1 22.3 16.1C400.1 499.6 496 388.6 496 252.8 496 113.3 389.9 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                            使用 GitHub 登录
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-8 text-center text-sm text-gray-400">
+                还没有账户？
+                <a href="注册页.html" class="font-medium text-indigo-400 hover:text-indigo-300">
+                    立即注册
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 实际的第三方登录逻辑需要后端配合和各自平台的SDK/API
+        // 例如，点击Google登录按钮后，会跳转到Google的授权页面
+        // 授权成功后，Google会回调您在Google开发者控制台设置的回调URL，并附带授权码
+        // 您的后端服务用授权码向Google换取用户信息，然后为用户创建或登录AIgorism账户
+
+        // 示例：为按钮添加点击事件，实际应跳转到OAuth流程
+        document.querySelectorAll('.social-login-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const service = this.innerText.replace('使用 ', '').replace(' 登录', '');
+                alert('正在尝试使用 ' + service + ' 登录... (实际流程将跳转到 ' + service + ' 授权页)');
+                // window.location.href = '您的OAuth发起URL/' + service.toLowerCase();
+            });
+        });
+    </script>
+
+</body>
+</html>

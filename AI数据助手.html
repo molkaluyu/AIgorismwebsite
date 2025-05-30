@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI数据助手功能特性 - AIgorism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hero-gradient-feature {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b0764 100%); /* 与首页英雄区一致或略作调整 */
+        }
+        .feature-block-visual {
+            aspect-ratio: 16 / 9;
+            background-color: #374151; /* 占位符背景色 gray-700 */
+            border-radius: 0.75rem; /* rounded-xl */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af; /* gray-400 */
+            font-size: 1.125rem; /* text-lg */
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+        .mobile-menu.active { /* 确保移动菜单脚本能工作 */
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button-da" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu-da" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <div class="border-l-4 border-indigo-500 bg-gray-800 mb-2">
+                    <a href="AI数据助手.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                </div>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-gradient-feature text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                AI数据助手：您的智能数据导航与洞察引擎
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                通过便捷的插件式订阅，将海量公开网络信息转化为您专属的动态私有数据，并由AI提炼深度洞察，助您轻松掌握市场脉搏，抢占商业先机。
+            </p>
+            <div class="space-x-4">
+                <a href="新定价页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg cta-button-primary text-lg transition duration-300">
+                    查看定价方案
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6 space-y-16 md:space-y-24">
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <img src="https://placehold.co/600x338/4A5568/E0E0E0?text=插件订阅演示GIF" alt="插件订阅演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-indigo-400">便捷的插件式数据订阅</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        只需提供目标网页URL（如电商平台、行业新闻、统计数据站点），即可通过AIgorism浏览器插件轻松订阅。告别手动复制粘贴，一键开启您的专属数据流。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>快速接入多源数据，覆盖全球信息。</li>
+                        <li>操作简单易上手，无需技术背景。</li>
+                        <li>灵活指定监控目标，满足个性化需求。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center flex-row-reverse gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <img src="https://placehold.co/600x338/5B21B6/E0E0E0?text=数据解析与私有化GIF" alt="数据解析与私有化演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-purple-400">智能解析与动态私有化</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        AIgorism平台自动解析您订阅的网页结构，智能提取关键数据字段，并持续监控更新。所有获取的数据都将转化为您账户下安全、动态的私有数据资产。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>数据自动更新，确保信息时效性。</li>
+                        <li>结构化数据输出，便于后续分析。</li>
+                        <li>私有数据安全存储，保障您的核心资产。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                         <img src="https://placehold.co/600x338/0D9488/E0E0E0?text=AI智能洞察仪表盘截图" alt="AI智能洞察演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-teal-400">LLM驱动的智能总结与洞察</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        内置强大的大语言模型，能自动对您积累的私有数据进行智能总结、趋势分析和价值挖掘。从海量信息中提炼可行动的洞察 (actionable insights)，辅助您的商业决策。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>快速获取核心信息摘要，节省阅读时间。</li>
+                        <li>自动发现潜在趋势、异常波动与关联价值。</li>
+                        <li>数据驱动决策，提升商业判断准确性。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                AI数据助手如何助您在国际贸易与物流中领先一步
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                将繁杂的数据工作交给AI，让您聚焦于核心业务增长与战略布局。
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">实时掌握市场动态</h3>
+                    <p class="text-gray-400 text-sm">持续监控关键信息源，第一时间获取行业变化、竞品情报和客户需求。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Zm-7.518-.267A8.25 8.25 0 1 1 20.25 10.5M8.288 14.212A5.25 5.25 0 1 1 17.25 10.5" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">精准锁定商业机会</h3>
+                    <p class="text-gray-400 text-sm">通过AI深度分析，从海量数据中发现潜在商机、新兴市场和合作伙伴。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">提升数据驱动决策能力</h3>
+                    <p class="text-gray-400 text-sm">基于可靠的数据洞察进行决策，降低风险，提高业务运营效率和盈利能力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                AI数据助手应用场景
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                看看其他像您一样的专业人士如何通过AI数据助手提升业务。
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-400">跨境电商：竞品动态实时追踪</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        一家出口型玩具企业，利用AI数据助手订阅了主要海外电商平台上多个核心竞品的产品页面、价格信息和用户评论区。系统每日自动更新，并通过AI总结竞品的价格调整策略、新品上架情况以及用户反馈热点，帮助该企业快速调整自身的产品定价和营销重点，季度销售额提升了15%。
+                    </p>
+                    <p class="text-gray-400 text-xs">行业：跨境电商 | 挑战：竞品信息繁杂，手动追踪效率低 | 成果：销售额提升15%</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">国际物流：供应链风险预警</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        某大型物流公司通过AI数据助手监控全球主要港口的新闻动态、天气预报、以及特定航线的运力指数。当系统监测到某关键港口因罢工可能导致拥堵时，会提前预警，并结合历史数据分析潜在影响。该公司据此及时调整了部分货物的运输计划，有效避免了延误和额外成本。
+                    </p>
+                     <p class="text-gray-400 text-xs">行业：国际物流 | 挑战：供应链信息不透明，突发风险难预测 | 成果：有效规避运输延误</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-indigo-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                准备好体验AI数据助手的强大功能了吗？
+            </h2>
+            <p class="text-lg md:text-xl text-indigo-200 mb-10 max-w-xl mx-auto">
+                立即开始，或联系我们的专家团队，了解更多定制化解决方案。
+            </p>
+            <div class="space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                <a href="新定价页.html" class="w-full md:w-auto inline-block bg-white text-indigo-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 cta-button-primary text-lg transition duration-300">
+                    选择您的方案
+                </a>
+                <a href="关于我们.html" class="w-full md:w-auto inline-block border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-indigo-700 text-lg transition duration-300">
+                    联系销售咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 AIgorism. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动菜单切换
+        document.getElementById('mobile-menu-button-da').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu-da');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

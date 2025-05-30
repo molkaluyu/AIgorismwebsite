@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于AIgorism - 我们的故事与使命</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .about-hero-gradient {
+            background: linear-gradient(135deg, #047857 0%, #1e3a8a 100%); /* 示例：深绿到深蓝 */
+        }
+        .team-member-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.04);
+        }
+        .value-card {
+             background-color: #1f2937; /* gray-800 */
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">关于我们</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <div class="border-l-4 border-indigo-500 bg-gray-800 mb-2">
+                    <a href="关于我们.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                </div>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="about-hero-gradient text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                关于AIgorism
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                智能驱动未来：AIgorism致力于革新国际贸易与物流的运作方式。
+            </p>
+        </div>
+    </header>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4">我们的使命 (Our Mission)</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        AIgorism的使命是利用最先进的人工智能技术和深度行业洞察，为全球国际贸易与物流企业提供强大、易用的智能工具与数据服务。我们赋能客户简化复杂流程、优化决策效率、开拓全球商机，最终实现可持续的业务增长。
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4">我们的愿景 (Our Vision)</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        我们致力于成为国际贸易与物流领域最值得信赖的AI智能合作伙伴。通过持续的技术创新和对行业的深刻理解，我们期望构建一个数据驱动、智能协同、高效透明的全球贸易新生态，让每一家企业都能从AI的变革力量中获益。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6 md:flex items-center gap-12">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="https://placehold.co/600x400/1E293B/A5B4FC?text=AIgorism团队故事示意图" alt="我们的故事示意图" class="rounded-xl shadow-xl w-full">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold text-white mb-6">我们的故事 (Our Story)</h2>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    AIgorism的创立，源于一群对国际贸易的复杂性与全球物流的挑战有着切身体会的行业资深人士，以及在人工智能领域拥有卓越成就的技术专家的共同理想。
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    我们敏锐地观察到，尽管数据在当今商业世界中无处不在，但如何有效地从海量、繁杂的信息中提取真知灼见，并将其转化为驱动业务增长的智能决策，对许多企业而言仍是一个亟待跨越的鸿沟。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    正是怀揣着这份用技术赋能行业、弥合信息鸿沟的热忱与决心，AIgorism应运而生。我们精心打造了"AI数据助手"与"AI邮件助手"这两款核心产品，并持续投入研发，与客户并肩成长。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">核心团队与我们的文化</h2>
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <p class="text-gray-300 leading-relaxed">
+                    AIgorism引以为傲的核心团队，汇集了来自人工智能算法、机器学习、大数据分析、国际贸易实务、供应链管理以及企业级软件开发等多个领域的跨界精英。我们不仅拥有国际领先的技术研发实力，更对国际贸易与物流的复杂业务场景有着深刻的同理心和洞察力。
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg team-member-card text-center">
+                    <img src="https://placehold.co/128x128/4F46E5/FFFFFF?text=专家A" alt="团队成员A" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-500">
+                    <h3 class="text-xl font-semibold text-white">张三 (San Zhang)</h3>
+                    <p class="text-indigo-400 text-sm mb-2">首席AI科学家</p>
+                    <p class="text-gray-400 text-xs">专注于前沿算法与行业模型研发，拥有XX项专利。</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg team-member-card text-center">
+                    <img src="https://placehold.co/128x128/7C3AED/FFFFFF?text=专家B" alt="团队成员B" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-purple-500">
+                    <h3 class="text-xl font-semibold text-white">李四 (Si Li)</h3>
+                    <p class="text-purple-400 text-sm mb-2">国际贸易策略顾问</p>
+                    <p class="text-gray-400 text-xs">数十年行业经验，洞悉市场动态与供应链优化。</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg team-member-card text-center">
+                    <img src="https://placehold.co/128x128/DB2777/FFFFFF?text=专家C" alt="团队成员C" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-pink-500">
+                    <h3 class="text-xl font-semibold text-white">王五 (Wu Wang)</h3>
+                    <p class="text-pink-400 text-sm mb-2">产品与技术负责人</p>
+                    <p class="text-gray-400 text-xs">领导创新产品研发与平台构建，追求极致用户体验。</p>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold text-white mb-4">我们的文化</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    在AIgorism，我们崇尚"以客户为中心，以创新为驱动，以卓越为标准"的核心文化。我们积极营造开放透明的沟通氛围，鼓励团队成员持续学习、勇于尝试，并在紧密的协作中共同成长。
+                </p>
+                <a href="careers.html" class="text-indigo-400 hover:text-indigo-300 font-semibold text-lg">
+                    加入我们，共创未来 &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">我们的价值观</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="value-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <svg class="w-8 h-8 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" /></svg>
+                        <h3 class="text-xl font-semibold text-white">客户成功</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">客户的成功是我们衡量一切工作的最终标准。我们致力于提供超越期望的产品与服务。</p>
+                </div>
+                <div class="value-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                         <svg class="w-8 h-8 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.354a15.996 15.996 0 0 1-4.5 0m3.75-10.043a12.022 12.022 0 0 0-4.5 0m3.75 2.354a15.996 15.996 0 0 0-4.5 0M3.454 5.046A12.022 12.022 0 0 1 7.95 2.692m0 0a15.996 15.996 0 0 1 4.5 0m0 0a12.022 12.022 0 0 1 4.496 2.354M7.95 2.692A15.996 15.996 0 0 0 3.454 5.046m4.496 0a15.996 15.996 0 0 1 4.5 0M3.454 5.046A11.953 11.953 0 0 0 12 10.5c2.998 0 5.74-1.1 7.843-2.918m-15.686 0A11.953 11.953 0 0 1 12 10.5c2.998 0 5.74-1.1 7.843-2.918m0 9.75A11.953 11.953 0 0 1 12 13.5c-2.998 0-5.74 1.1-7.843 2.918m15.686 0A11.953 11.953 0 0 0 12 13.5c2.998 0 5.74 1.1 7.843 2.918" /></svg>
+                        <h3 class="text-xl font-semibold text-white">创新引领</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">我们拥抱变化，勇于探索AI技术前沿，并积极应用于解决行业实际挑战。</p>
+                </div>
+                <div class="value-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <svg class="w-8 h-8 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15L15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.745 3.745 0 0 1 3.296-1.043A3.745 3.745 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+                        <h3 class="text-xl font-semibold text-white">专业求精</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">我们以最高的专业标准要求团队，在产品、技术、服务等各环节追求极致。</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-indigo-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">准备好与AIgorism一同成长了吗？</h2>
+            <p class="text-lg text-indigo-200 mb-8 max-w-xl mx-auto">
+                探索我们的解决方案，或直接联系我们，了解AIgorism如何为您的业务赋能。
+            </p>
+            <div class="space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                <a href="首页.html#core-services" class="w-full md:w-auto inline-block bg-white text-indigo-700 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 cta-button-primary transition duration-300">
+                    探索我们的服务
+                </a>
+                <a href="关于我们.html#contact" class="w-full md:w-auto inline-block border-2 border-white text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-white hover:text-indigo-700 transition duration-300">
+                    联系我们
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            &copy; <span id="currentYear"></span> AIgorism. 保留所有权利.
+        </div>
+    </footer>
+
+    <script>
+        // 页脚年份自动更新
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // 移动端菜单切换逻辑
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIgorism 定价方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .pricing-hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1d2c47 100%); /* 深蓝灰色调 */
+        }
+        .plan-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #374151; /* 默认边框 */
+        }
+        .plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        .plan-card.recommended { /* 推荐套餐的特殊样式 */
+            border-color: #6366f1; /* 靛蓝色边框 */
+            transform: scale(1.05); /* 稍微放大 */
+        }
+        .plan-card.recommended .plan-header {
+            background-color: #4f46e5; /* 靛蓝背景 */
+            color: white;
+        }
+        .tab-button {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #4f46e5; /* 激活的标签页按钮背景色 */
+            color: white;
+        }
+        .tab-button:not(.active):hover {
+            background-color: #374151; /* 未激活按钮悬浮背景色 */
+        }
+        .faq-item dt {
+            cursor: pointer;
+        }
+        .faq-item dd {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .faq-item.open dd {
+            max-height: 500px; /* 一个足够大的值以显示内容 */
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+        /* 移动端菜单激活时的样式 */
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <div class="border-l-4 border-indigo-500 bg-gray-800 mb-2">
+                    <a href="新定价页.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                </div>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pricing-hero-gradient text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                选择最适合您的AIgorism方案
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                透明定价，随需选择。无论您是个人用户还是大型企业，我们都有合适的方案助您成功。
+            </p>
+            <div class="flex justify-center mb-8">
+                <div class="bg-gray-700 p-1 rounded-lg flex space-x-1">
+                    <button id="monthly-btn" class="px-6 py-2 rounded-md text-sm font-medium tab-button active">月度订阅</button>
+                    <button id="annual-btn" class="px-6 py-2 rounded-md text-sm font-medium tab-button">年度订阅 (立省20%)</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-10 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center -mb-px space-x-2 sm:space-x-4" id="pricing-tabs">
+                <button data-target="data-assistant-plans" class="tab-button active text-sm sm:text-base font-medium px-4 py-3 sm:px-6 sm:py-3 rounded-t-lg border-b-2 border-transparent hover:border-indigo-500 focus:outline-none">
+                    AI数据助手
+                </button>
+                <button data-target="email-assistant-plans" class="tab-button text-sm sm:text-base font-medium px-4 py-3 sm:px-6 sm:py-3 rounded-t-lg border-b-2 border-transparent hover:border-indigo-500 focus:outline-none">
+                    AI邮件助手
+                </button>
+                <button data-target="suite-plans" class="tab-button text-sm sm:text-base font-medium px-4 py-3 sm:px-6 sm:py-3 rounded-t-lg border-b-2 border-transparent hover:border-indigo-500 focus:outline-none">
+                    AIgorism专业套件
+                </button>
+                <button data-target="api-plans" class="tab-button text-sm sm:text-base font-medium px-4 py-3 sm:px-6 sm:py-3 rounded-t-lg border-b-2 border-transparent hover:border-indigo-500 focus:outline-none">
+                    API服务
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+
+            <div id="data-assistant-plans" class="pricing-plan-group">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">AI数据助手 定价方案</h2>
+                <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2 text-white plan-header">免费版</h3>
+                            <p class="text-gray-400 mb-6 text-sm">适合个人体验用户、轻度数据监控需求。</p>
+                            <p class="text-4xl font-bold text-white mb-1">
+                                ¥<span id="price-da-free">0</span>
+                                <span class="text-lg font-normal text-gray-400 price-unit">/月</span>
+                            </p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>可监控数据源：2 个</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>数据更新频率：标准</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>历史数据保留：7 天</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>基础数据订阅与分析</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>社区支持 / 知识库</li>
+                            </ul>
+                        </div>
+                        <a href="#signup" class="w-full block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">开始使用</a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card recommended flex flex-col justify-between">
+                        <div class="plan-header px-0 -mx-8 pt-4 pb-2 mb-6 rounded-t-xl">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-center mb-1">最受欢迎</p>
+                            <h3 class="text-2xl font-semibold mb-2 text-center">专业版</h3>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-6 text-sm text-center">适合专业市场分析师、中小型外贸/物流企业。</p>
+                            <p class="text-4xl font-bold text-white mb-1 text-center">
+                                ¥<span id="price-da-pro">199</span>
+                                <span class="text-lg font-normal text-gray-400 price-unit">/月</span>
+                            </p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>可监控数据源：10 个</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>数据更新频率：加快</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>历史数据保留：30 天</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>所有基础功能</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>邮件/在线聊天支持</li>
+                            </ul>
+                        </div>
+                        <a href="#signup-pro" class="w-full block text-center bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">选择专业版</a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2 text-white plan-header">企业定制版</h3>
+                            <p class="text-gray-400 mb-6 text-sm">适合大型企业、复杂数据监控与分析需求。</p>
+                            <p class="text-3xl font-bold text-white mb-1">按需定制</p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>定制数据源数量</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>定制更新频率/近实时</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>高级数据处理</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>专属客户成功经理</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>优先支持 / SLA</li>
+                            </ul>
+                        </div>
+                        <a href="#contact-sales" class="w-full block text-center bg-gray-600 hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">联系销售</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="email-assistant-plans" class="pricing-plan-group hidden">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">AI邮件助手 定价方案</h2>
+                <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2 text-white plan-header">免费版</h3>
+                            <p class="text-gray-400 mb-6 text-sm">适合个人体验，少量邮件辅助需求。</p>
+                            <p class="text-4xl font-bold text-white mb-1">
+                                ¥<span id="price-ea-free">0</span>
+                                <span class="text-lg font-normal text-gray-400 price-unit">/月</span>
+                            </p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>"目标"数量：1 个</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>AI助手调用次数：50 次/月</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>邮件发送上限：100 封/月</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>推荐数据源：1 个/目标</li>
+                            </ul>
+                        </div>
+                        <a href="#signup" class="w-full block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">开始使用</a>
+                    </div>
+                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card recommended flex flex-col justify-between">
+                        <div class="plan-header px-0 -mx-8 pt-4 pb-2 mb-6 rounded-t-xl">
+                             <p class="text-xs font-semibold uppercase tracking-wider text-center mb-1">最受欢迎</p>
+                            <h3 class="text-2xl font-semibold mb-2 text-center">专业版</h3>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-6 text-sm text-center">适合专业营销人员、中小型团队。</p>
+                            <p class="text-4xl font-bold text-white mb-1 text-center">
+                                ¥<span id="price-ea-pro">299</span>
+                                <span class="text-lg font-normal text-gray-400 price-unit">/月</span>
+                            </p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>"目标"数量：5 个</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>AI助手调用次数：500 次/月</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>邮件发送上限：2,000 封/月</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>推荐数据源：3 个/目标</li>
+                            </ul>
+                        </div>
+                         <a href="#signup-pro-email" class="w-full block text-center bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">选择专业版</a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2 text-white plan-header">企业定制版</h3>
+                             <p class="text-gray-400 mb-6 text-sm">适合大型企业、复杂邮件营销需求。</p>
+                            <p class="text-3xl font-bold text-white mb-1">按需定制</p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>定制"目标"数量</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>大用量AI调用与邮件发送</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>更丰富推荐数据源</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>专属客户成功经理</li>
+                            </ul>
+                        </div>
+                        <a href="#contact-sales" class="w-full block text-center bg-gray-600 hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">联系销售</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="suite-plans" class="pricing-plan-group hidden">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">AIgorism 专业套件 定价方案</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto"> <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card recommended flex flex-col justify-between">
+                        <div class="plan-header px-0 -mx-8 pt-4 pb-2 mb-6 rounded-t-xl">
+                             <p class="text-xs font-semibold uppercase tracking-wider text-center mb-1">最佳价值</p>
+                            <h3 class="text-2xl font-semibold mb-2 text-center">专业套件</h3>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-6 text-sm text-center">全面利用AIgorism平台进行数据洞察和智能营销。</p>
+                            <p class="text-4xl font-bold text-white mb-1 text-center">
+                                ¥<span id="price-suite-pro">399</span>
+                                <span class="text-lg font-normal text-gray-400 price-unit">/月</span>
+                            </p>
+                             <p class="text-xs text-gray-500 text-center mb-1">(原价 ¥199 + ¥299 = ¥498)</p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>包含AI数据助手专业版所有额度</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>包含AI邮件助手专业版所有额度</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>更高的整体API调用限额 (示例)</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>优先新功能体验 (示例)</li>
+                            </ul>
+                        </div>
+                         <a href="#signup-suite" class="w-full block text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">选择专业套件</a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg plan-card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2 text-white plan-header">企业套件</h3>
+                             <p class="text-gray-400 mb-6 text-sm">需要大规模、深度集成AIgorism所有核心能力的企业。</p>
+                            <p class="text-3xl font-bold text-white mb-1">按需定制</p>
+                            <ul class="space-y-3 text-gray-300 my-8 text-sm">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>全方位定制所有服务额度</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>包含所有企业级特性和服务</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>专属客户成功经理与SLA</li>
+                            </ul>
+                        </div>
+                        <a href="#contact-sales" class="w-full block text-center bg-gray-600 hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg cta-button-primary transition duration-300">联系销售</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="api-plans" class="pricing-plan-group hidden">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">API 服务定价</h2>
+                <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <p class="text-gray-300 mb-4">我们的专业版和专业套件套餐中已包含基础的API调用额度。对于超出额度或有更高API使用需求的用户，我们提供灵活的按量付费方案。</p>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-semibold text-indigo-400 mb-2">按量付费 (Pay-As-You-Go)</h4>
+                        <p class="text-gray-400 text-sm">超出套餐内免费额度的部分，将按以下标准计费（示例价格）：</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1 text-sm">
+                            <li>标准API调用： ¥10 / 每1,000次调用</li>
+                            <li>复杂规则/模型调用： ¥50 / 每1,000次调用 (按调用权重计算)</li>
+                        </ul>
+                        <p class="text-gray-400 text-xs mt-1">具体API接口的调用权重请参考<a href="#api-docs" class="text-indigo-400 hover:underline">API文档</a>。</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-indigo-400 mb-2">企业级API需求</h4>
+                        <p class="text-gray-400 text-sm">对于需要大批量调用、更高频率限制、专属技术支持或定制API规则的企业用户，请联系我们获取定制化方案。</p>
+                        <a href="#contact-sales" class="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg cta-button-primary text-sm transition duration-300">咨询企业API方案</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900 border-t border-gray-700">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">常见问题解答</h2>
+            <div class="space-y-6">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md faq-item">
+                    <dt class="text-lg font-medium text-white flex justify-between items-center">
+                        <span>如何升级或降级我的套餐？</span>
+                        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </dt>
+                    <dd class="text-gray-400 text-sm mt-2 leading-relaxed">
+                        您可以随时在您的账户设置中心的"订阅管理"页面进行套餐的升级或降级。新的计费周期将从更改确认后开始。
+                    </dd>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md faq-item">
+                    <dt class="text-lg font-medium text-white flex justify-between items-center">
+                        <span>年度订阅有什么优惠？</span>
+                        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </dt>
+                    <dd class="text-gray-400 text-sm mt-2 leading-relaxed">
+                        是的，选择年度订阅通常可以享受相当于2个月免费的折扣（即支付10个月的费用，享用12个月的服务），相当于总价优惠20%。具体折扣请在选择年度订阅时查看。
+                    </dd>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md faq-item">
+                    <dt class="text-lg font-medium text-white flex justify-between items-center">
+                        <span>支持哪些支付方式？</span>
+                        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </dt>
+                    <dd class="text-gray-400 text-sm mt-2 leading-relaxed">
+                        我们目前支持主流的信用卡支付（Visa, MasterCard, American Express）以及[其他支付方式，如支付宝、微信支付，根据实际情况添加]。
+                    </dd>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            &copy; <span id="currentYear"></span> AIgorism. 保留所有权利.
+        </div>
+    </footer>
+
+    <script>
+        // 页脚年份自动更新
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 标签页切换逻辑
+        const tabsContainer = document.getElementById('pricing-tabs');
+        const planGroups = document.querySelectorAll('.pricing-plan-group');
+        const tabButtons = tabsContainer ? tabsContainer.querySelectorAll('.tab-button') : [];
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active', 'border-indigo-500', 'text-white'));
+                tabButtons.forEach(btn => btn.classList.add('border-transparent', 'text-gray-400'));
+                button.classList.add('active', 'border-indigo-500', 'text-white');
+                button.classList.remove('border-transparent', 'text-gray-400');
+                planGroups.forEach(group => group.classList.add('hidden'));
+                const targetId = button.dataset.target;
+                const targetGroup = document.getElementById(targetId);
+                if (targetGroup) {
+                    targetGroup.classList.remove('hidden');
+                }
+            });
+        });
+
+        // FAQ 折叠逻辑
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('dt');
+            const arrow = question.querySelector('svg');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.toggle('open');
+                if (arrow) {
+                    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            });
+        });
+
+        // 月付/年付切换逻辑
+        const monthlyBtn = document.getElementById('monthly-btn');
+        const annualBtn = document.getElementById('annual-btn');
+        const priceElements = { // 定义各套餐价格元素的ID和基础月度价格
+            'price-da-pro': 199,
+            'price-ea-pro': 299,
+            'price-suite-pro': 399,
+            // 免费版价格固定为0，企业版为"按需定制"，无需处理
+        };
+        const priceUnitSpans = document.querySelectorAll('.price-unit');
+
+        function updatePrices(isAnnual) {
+            for (const id in priceElements) {
+                const element = document.getElementById(id);
+                if (element) {
+                    const baseMonthlyPrice = priceElements[id];
+                    if (isAnnual) {
+                        // 年度价格 = 月度价格 * 12 * 0.8 (20%折扣)
+                        element.textContent = Math.round(baseMonthlyPrice * 12 * 0.8);
+                    } else {
+                        element.textContent = baseMonthlyPrice;
+                    }
+                }
+            }
+            priceUnitSpans.forEach(span => {
+                span.textContent = isAnnual ? '/年' : '/月';
+            });
+        }
+
+        if(monthlyBtn && annualBtn){
+            monthlyBtn.addEventListener('click', () => {
+                monthlyBtn.classList.add('active');
+                annualBtn.classList.remove('active');
+                updatePrices(false); // 更新为月度价格
+                console.log("切换到月度订阅");
+            });
+            annualBtn.addEventListener('click', () => {
+                annualBtn.classList.add('active');
+                monthlyBtn.classList.remove('active');
+                updatePrices(true); // 更新为年度价格
+                console.log("切换到年度订阅");
+            });
+        }
+        // 初始化时显示月度价格 (因为月度按钮默认active)
+        updatePrices(false);
+
+        // 移动菜单切换功能
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton && mobileMenu){
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+    </script>
+
+</body>
+</html>

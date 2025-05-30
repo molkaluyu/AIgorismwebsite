@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIgorism 帮助与文档中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .docs-hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); /* 较深的蓝紫色调 */
+        }
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #374151;
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            border-color: #4f46e5; /* 悬浮时边框变色 */
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-indigo-500">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <div class="border-l-4 border-indigo-500 bg-gray-800 mb-2">
+                    <a href="文档中心.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                </div>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="docs-hero-gradient text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                AIgorism 帮助与文档中心
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                您好！我们在这里为您提供所需的一切帮助和指引。
+            </p>
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                    <input type="search" name="search-docs" id="search-docs-input"
+                           class="block w-full p-4 pl-10 text-sm text-gray-100 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-400"
+                           placeholder="搜索文档、教程、API参考...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">浏览我们的资源</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="docs/getting-started.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                    <div class="flex items-center justify-center mb-5 w-12 h-12 bg-indigo-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">快速入门指南</h3>
+                    <p class="text-gray-400 text-sm text-center">了解如何快速开始使用AIgorism平台和核心助手。</p>
+                </a>
+
+                <a href="docs/data-assistant.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                    <div class="flex items-center justify-center mb-5 w-12 h-12 bg-indigo-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">AI数据助手用户手册</h3>
+                    <p class="text-gray-400 text-sm text-center">详细了解AI数据助手的所有功能、操作步骤和最佳实践。</p>
+                </a>
+
+                <a href="docs/email-assistant.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                     <div class="flex items-center justify-center mb-5 w-12 h-12 bg-purple-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">AI邮件助手用户手册</h3>
+                    <p class="text-gray-400 text-sm text-center">深入探索AI邮件助手的功能，学习如何提升邮件营销效果。</p>
+                </a>
+
+                <a href="docs/api-reference.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                    <div class="flex items-center justify-center mb-5 w-12 h-12 bg-teal-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">API文档</h3>
+                    <p class="text-gray-400 text-sm text-center">为开发者提供详细的API接口说明、认证方式和代码示例。</p>
+                </a>
+
+                <a href="docs/faq.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                    <div class="flex items-center justify-center mb-5 w-12 h-12 bg-yellow-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">常见问题解答 (FAQ)</h3>
+                    <p class="text-gray-400 text-sm text-center">查找关于账户、计费、产品使用等常见问题的答案。</p>
+                </a>
+
+                <a href="docs/tutorials.html" class="block bg-gray-700 p-8 rounded-xl shadow-lg category-card">
+                    <div class="flex items-center justify-center mb-5 w-12 h-12 bg-pink-500 rounded-lg mx-auto">
+                        <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center text-white">教程与用例</h3>
+                    <p class="text-gray-400 text-sm text-center">通过具体的场景化教程和客户案例，学习如何最大化AIgorism的价值。</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-semibold mb-4 text-white">没有找到您需要的信息？</h2>
+            <p class="text-gray-400 mb-8 max-w-md mx-auto">我们的支持团队随时准备为您提供帮助。您也可以访问我们的社区论坛与其他用户交流。</p>
+            <a href="关于我们.html#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md cta-button-primary transition duration-300">
+                联系我们
+            </a>
+            <!-- <a href="forum.html" class="ml-4 border-2 border-indigo-500 text-indigo-400 font-semibold py-3 px-8 rounded-lg hover:bg-indigo-500 hover:text-white transition duration-300">
+                访问社区论坛
+            </a> -->
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            &copy; <span id="currentYear"></span> AIgorism. 保留所有权利.
+        </div>
+    </footer>
+
+    <script>
+        // 页脚年份自动更新
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 移动端菜单切换逻辑
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 搜索框的实际功能需要后端或第三方服务支持，此处仅为前端样式
+        const searchInput = document.getElementById('search-docs-input');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    alert('搜索功能正在开发中，您输入了: ' + searchInput.value);
+                    // 实际应用中，这里会触发表单提交或AJAX请求
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

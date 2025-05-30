@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI助手功能特性 - AIgorism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hero-gradient-feature { /* 特性页的英雄区背景，可以与首页不同或类似 */
+            background: linear-gradient(135deg, #111827 0%, #1e293b 100%); /* 示例：深灰到更深灰蓝 */
+        }
+        .feature-block-visual {
+            aspect-ratio: 16 / 9; /* 保持演示区域的宽高比 */
+            background-color: #374151; /* 占位符背景色 */
+            border-radius: 0.75rem; /* 圆角 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <a href="AI邮件助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-gradient-feature text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                [AI助手名称]: [核心价值主张]
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                [一两句话概括该助手的核心价值或能解决的关键问题]
+            </p>
+            <div class="space-x-4">
+                <a href="新定价页.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg cta-button-primary text-lg transition duration-300">
+                    查看定价方案
+                </a>
+                <!-- <a href="#try-free" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-indigo-700 cta-button-secondary text-lg transition duration-300">
+                    免费试用
+                </a> -->
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6 space-y-16 md:space-y-24">
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <span>[功能1的GIF/视频/截图演示区域]</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-indigo-400">[功能1标题：简洁有力，强调用户利益]</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        [详细描述功能1是什么，如何帮助用户解决特定问题或完成特定任务，以及它的关键亮点。2-3句话。]
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>关键收益点 A</li>
+                        <li>关键收益点 B</li>
+                        <li>关键收益点 C</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center flex-row-reverse gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <span>[功能2的GIF/视频/截图演示区域]</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-purple-400">[功能2标题：简洁有力，强调用户利益]</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        [详细描述功能2是什么，如何帮助用户解决特定问题或完成特定任务，以及它的关键亮点。2-3句话。]
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>关键收益点 X</li>
+                        <li>关键收益点 Y</li>
+                        <li>关键收益点 Z</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <span>[功能3的GIF/视频/截图演示区域]</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-teal-400">[功能3标题：简洁有力，强调用户利益]</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        [详细描述功能3是什么，如何帮助用户解决特定问题或完成特定任务，以及它的关键亮点。2-3句话。]
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>关键收益点 P</li>
+                        <li>关键收益点 Q</li>
+                        <li>关键收益点 R</li>
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                [AI助手名称] 如何助您成功
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                [总结该AI助手能为用户带来的整体价值和核心优势的简短介绍]
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">[核心优势1，例如：大幅提升效率]</h3>
+                    <p class="text-gray-400 text-sm">[简述此优势如何实现，为用户带来什么好处]</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">[核心优势2，例如：精准洞察商机]</h3>
+                    <p class="text-gray-400 text-sm">[简述此优势如何实现，为用户带来什么好处]</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">[核心优势3，例如：简化复杂工作]</h3>
+                    <p class="text-gray-400 text-sm">[简述此优势如何实现，为用户带来什么好处]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                [AI助手名称] 在国际贸易与物流中的应用
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                看看其他像您一样的专业人士如何通过[AI助手名称]提升业务。
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-400">[应用场景/案例标题1]</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        [详细描述一个具体的使用场景或客户案例。例如：一家出口企业如何利用AI数据助手监控海外市场竞品动态，并调整定价策略，最终提升了20%的利润。初期可以是基于功能设想的虚拟场景。]
+                    </p>
+                    <p class="text-gray-400 text-xs">行业：[例如：跨境电商] | 挑战：[例如：竞品分析耗时] | 成果：[例如：利润提升20%]</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">[应用场景/案例标题2]</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        [描述另一个具体的使用场景或客户案例。]
+                    </p>
+                     <p class="text-gray-400 text-xs">行业：[例如：国际货代] | 挑战：[例如：客户开发邮件回复率低] | 成果：[例如：邮件回复率提升X%]</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-indigo-700 text-white"> <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                准备好体验[AI助手名称]的强大功能了吗？
+            </h2>
+            <p class="text-lg md:text-xl text-indigo-200 mb-10 max-w-xl mx-auto">
+                立即开始，或联系我们的专家团队，了解更多定制化解决方案。
+            </p>
+            <div class="space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                <a href="#pricing" class="w-full md:w-auto inline-block bg-white text-indigo-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 cta-button-primary text-lg transition duration-300">
+                    选择您的方案
+                </a>
+                <a href="#contact" class="w-full md:w-auto inline-block border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-indigo-700 cta-button-secondary text-lg transition duration-300">
+                    联系销售咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            &copy; <span id="currentYear"></span> AIgorism. 保留所有权利.
+        </div>
+    </footer>
+
+    <script>
+        // 页脚年份自动更新
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 导航栏的移动端菜单切换逻辑 (如果需要，应从首页复制过来)
+        // const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // const mobileMenu = document.getElementById('mobile-menu');
+        // if (mobileMenuButton && mobileMenu) {
+        //     mobileMenuButton.addEventListener('click', () => {
+        //         mobileMenu.classList.toggle('active');
+        //     });
+        // }
+    </script>
+
+</body>
+</html>

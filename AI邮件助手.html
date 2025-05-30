@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI邮件助手功能特性 - AIgorism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hero-gradient-feature {
+            background: linear-gradient(135deg, #5b21b6 0%, #312e81 100%); /* 示例：深紫到更深靛蓝 */
+        }
+        .feature-block-visual {
+            aspect-ratio: 16 / 9;
+            background-color: #374151;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .cta-button-primary:hover {
+            filter: brightness(110%);
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="首页.html" class="text-3xl font-bold text-white">AIgorism</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="首页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                    <a href="AI数据助手.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AI数据助手</a>
+                    <a href="AI邮件助手.html" class="text-white px-3 py-2 rounded-md text-sm font-medium border-b-2 border-purple-500">AI邮件助手</a>
+                    <a href="新定价页.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">定价</a>
+                    <a href="博客.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">博客</a>
+                    <a href="文档中心.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">帮助文档</a>
+                    <a href="关于我们.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">关于我们</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="登录页.html" class="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">登录</a>
+                    <a href="注册页.html" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium cta-button-primary">开始使用</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button-ea" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu-ea" class="md:hidden hidden mt-3 space-y-1 mobile-menu">
+                <a href="首页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="AI数据助手.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">AI数据助手</a>
+                <div class="border-l-4 border-purple-500 bg-gray-800 mb-2">
+                    <a href="AI邮件助手.html" class="block text-white px-3 py-2 rounded-md text-base font-medium">AI邮件助手</a>
+                </div>
+                <a href="新定价页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">定价</a>
+                <a href="博客.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">博客</a>
+                <a href="文档中心.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">帮助文档</a>
+                <a href="关于我们.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+                <hr class="my-2 border-gray-700">
+                <a href="登录页.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">登录</a>
+                <a href="注册页.html" class="block bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-md text-base font-medium text-center cta-button-primary">开始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-gradient-feature text-white pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                AI邮件助手：您的个性化营销与高效沟通伙伴
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                深度挖掘客户背景信息，结合AI智能创作与优化，让您的每一封邮件都更具吸引力和转化力，轻松达成营销目标。
+            </p>
+            <div class="space-x-4">
+                <a href="新定价页.html" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg cta-button-primary text-lg transition duration-300">
+                    查看定价方案
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6 space-y-16 md:space-y-24">
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <img src="https://placehold.co/600x338/6D28D9/E0E0E0?text=客户背景洞察UI截图" alt="客户背景洞察演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-purple-400">目标客户背景智能洞察</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        在撰写邮件前，AI助手自动搜集并提炼目标联系人的企业信息、产品动态、工商资料、最新行业新闻等关键背景素材，为您提供丰富的个性化切入点。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>邮件内容高度相关，不再盲目群发。</li>
+                        <li>快速了解客户，提升沟通专业度。</li>
+                        <li>节省手动调研时间，聚焦核心沟通。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center flex-row-reverse gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                        <img src="https://placehold.co/600x338/7C3AED/E0E0E0?text=AI邮件创作优化GIF" alt="AI邮件创作优化演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-indigo-400">AI辅助智能创作与优化</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        结合您的营销目标（如拓客、交叉销售、客户关怀），通过与AI的聊天式交互，不断打磨和优化邮件内容、标题和开头。AI提供多种写作建议，确保邮件专业且吸引人。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>邮件撰写更高效，数分钟完成初稿。</li>
+                        <li>内容质量显著提升，表达更精准有力。</li>
+                        <li>轻松应对多种营销场景，定制专属内容。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="feature-block-visual">
+                         <img src="https://placehold.co/600x338/A78BFA/E0E0E0?text=数据源推荐UI截图" alt="数据源推荐演示" class="rounded-xl w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-pink-400">基于目标的自动数据源推荐</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        系统会根据您设定的营销目标和目标客户的资料，智能推荐相关的数据源（免费版和付费版数量不同），进一步丰富您的邮件素材库，让个性化营销更进一步。
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1">
+                        <li>邮件信息更充实，论点更有依据。</li>
+                        <li>个性化触达更精准，提升客户关注度。</li>
+                        <li>持续优化营销素材，保持内容新鲜感。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                AI邮件助手如何赋能您的业务沟通与客户关系
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                让每一封邮件都成为建立信任、促进合作的桥梁。
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">大幅提高邮件打开与回复率</h3>
+                    <p class="text-gray-400 text-sm">通过高度个性化和信息丰富的内容，显著提升客户的关注和互动意愿。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                     <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198-.001-.001A18.034 18.034 0 0 1 12 5.695M12 5.695a18.034 18.034 0 0 0-3.741 10.098M12 5.695L8.259 3S7.233 2.25 6 2.25m6 3.445L12 2.25M3 18.72C3 14.025 6.025 11 10.5 11h3c4.475 0 7.5 3.025 7.5 7.725" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">缩短客户开发与转化周期</h3>
+                    <p class="text-gray-400 text-sm">更精准的触达和更专业的沟通，加速从潜在客户到成交伙伴的转化过程。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+                    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">增强客户粘性与满意度</h3>
+                    <p class="text-gray-400 text-sm">通过持续的、有价值的个性化沟通，建立更稳固的客户关系，提升客户忠诚度。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+                AI邮件助手应用场景
+            </h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-xl mx-auto">
+                探索AI邮件助手如何在不同业务环节中发挥关键作用。
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">外贸业务员：高效开发海外新客户</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        小王是一名经验丰富的外贸业务员，以往每天花费大量时间撰写开发信。使用AI邮件助手后，他可以快速设定"拓客"目标，系统自动为其目标客户（如某国进口商）匹配相关行业新闻和企业动态。AI辅助生成的邮件初稿不仅信息丰富，且能精准切中对方关注点，小王的邮件回复率提升了近50%。
+                    </p>
+                    <p class="text-gray-400 text-xs">行业：国际贸易 | 挑战：开发信回复率低，耗时耗力 | 成果：邮件回复率提升50%</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-400">物流方案提供商：精准营销行业解决方案</h3>
+                    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        一家专注于冷链物流的方案提供商，希望向特定食品加工企业推广其温控运输服务。通过AI邮件助手，他们设定"方案推广"目标，AI能够结合目标企业的业务特点（如主要出口产品、对运输时效和温度的要求），生成包含行业痛点分析和定制化物流解决方案亮点的邮件，有效提升了方案的吸引力和客户的咨询意愿。
+                    </p>
+                     <p class="text-gray-400 text-xs">行业：专业物流服务 | 挑战：方案推广难以精准触达 | 成果：客户咨询意愿显著提高</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-purple-700 text-white"> <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                准备好让您的邮件营销与沟通更智能、更高效了吗？
+            </h2>
+            <p class="text-lg md:text-xl text-purple-200 mb-10 max-w-xl mx-auto">
+                立即体验AI邮件助手，或与我们联系，发现更多可能。
+            </p>
+            <div class="space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                <a href="新定价页.html" class="w-full md:w-auto inline-block bg-white text-purple-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 cta-button-primary text-lg transition duration-300">
+                    选择您的方案
+                </a>
+                <a href="关于我们.html" class="w-full md:w-auto inline-block border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-purple-700 text-lg transition duration-300">
+                    联系销售咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 AIgorism. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动菜单切换
+        document.getElementById('mobile-menu-button-ea').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu-ea');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
